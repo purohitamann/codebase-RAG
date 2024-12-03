@@ -63,8 +63,8 @@ export default function Chat() {
   return (
     <div className="flex justify-center items-start sm:pt-16 min-h-screen w-full dark:bg-neutral-900 px-4 md:px-0 py-4">
       <div className="flex flex-col items-center w-full max-w-[500px]">
-      <ProjectOverview />
-      <motion.div
+        <ProjectOverview />
+        <motion.div
           animate={{
             minHeight: isExpanded ? 200 : 0,
             padding: isExpanded ? 12 : 0,
@@ -83,7 +83,7 @@ export default function Chat() {
           <div className="flex flex-col w-full justify-between gap-2">
             <form onSubmit={handleSubmit} className="flex space-x-2">
               <Input
-                className={`bg-neutral-100 text-base w-full text-neutral-700 dark:bg-neutral-700 dark:placeholder:text-neutral-400 dark:text-neutral-300`}
+                className={`bg-neutral-100 border border-[#b8d48f] text-base w-full text-white dark:bg-neutral-700 dark:placeholder:text-white dark:text-neutral-300`}
                 minLength={3}
                 required
                 value={input}

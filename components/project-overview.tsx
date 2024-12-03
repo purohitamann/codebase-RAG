@@ -2,7 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { InformationIcon, VercelIcon } from "./icons";
-
+import { MessageSquareCode, Eye } from "lucide-react";
+import { EyeOffIcon } from "lucide-react";
+import { Input } from "./ui/input";
 const ProjectOverview = () => {
   return (
     <motion.div
@@ -11,13 +13,17 @@ const ProjectOverview = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 5 }}
     >
-      <div className="border rounded-lg p-6 flex flex-col gap-4 text-neutral-500 text-sm dark:text-neutral-400 dark:border-neutral-700 dark:bg-neutral-900">
+      <div className="border rounded-lg p-6 flex flex-col gap-4 text-white text-sm dark:text-white dark:border-[#b8d48f] dark:bg-neutral-900">
         <p className="flex flex-row justify-center gap-4 items-center text-neutral-900 dark:text-neutral-50">
-          <VercelIcon size={16} />
-          <span>+</span>
-          <InformationIcon />
+
+          <div className="flex flex-row gap-2 items-center text-2xl">
+            <MessageSquareCode className="text-[#b8d48f]" size={36} />
+
+            <span className="flex ">Codebase <p className="text-lg text-[#b8d48f]">RAG</p></span>
+
+          </div>
         </p>
-        <p>
+        {/* <p>
           The{" "}
           <Link
             href="https://sdk.vercel.ai/docs/reference/ai-sdk-ui/use-chat"
@@ -35,17 +41,34 @@ const ProjectOverview = () => {
           function allows you to build applications with retrieval augmented
           generation (RAG) capabilities. Data is stored as vector embeddings
           using DrizzleORM and PostgreSQL.
-        </p>
+        </p> */}
+
         <p>
-          Learn how to build this project by following this{" "}
-          <Link
-            className="text-blue-500"
-            href="https://sdk.vercel.ai/docs/guides/rag-chatbot"
-            target="_blank"
-          >
-            guide
-          </Link>
-          .
+
+          Please make sure the project link is public and you have the following secrets set:
+          <div className="h-2"></div>
+          <ul className="flex flex-col gap-4 ">
+            <li >GROQ_API_KEY {" "}
+              <div className="flex flex-row gap-2 items-center align-center justify-center" >
+                <Input className="w-full bg-transparent border border-[#b8d48f] text-[#f8f8f8] placeholder:text-[#b8d48f]" placeholder="GROQ_API_KEY" />
+                <Hide isOpen={true} />
+              </div>
+            </li>
+            <li >PINECONE_API_KEY{" "}
+              <div className="flex flex-row gap-2 items-center align-center justify-center" >
+                <Input className="w-full bg-transparent border border-[#b8d48f] text-[#f8f8f8] placeholder:text-[#b8d48f]" placeholder="PINECONE_API_KEY" />
+                <Hide isOpen={true} />
+              </div>
+            </li>
+            <li >GITHUB_API_KEY {" "}
+              <div className="flex flex-row gap-2 items-center align-center justify-center" >
+                <Input className="w-full bg-transparent border border-[#b8d48f] text-[#f8f8f8] placeholder:text-[#b8d48f]" placeholder="GITHUB_PROJECT URL" />
+                <Hide isOpen={true} />
+              </div>
+            </li>
+
+
+          </ul>
         </p>
       </div>
     </motion.div>
@@ -53,3 +76,12 @@ const ProjectOverview = () => {
 };
 
 export default ProjectOverview;
+
+function Hide({ isOpen }: { isOpen: boolean }) {
+  return (
+    <div className="text-[#b8d48f]">
+      {isOpen ? <EyeOffIcon /> : <Eye />}
+
+    </div>
+  )
+}

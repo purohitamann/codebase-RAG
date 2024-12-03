@@ -4,9 +4,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-rag.vercel.app"),
-  title: "Retrieval Augmented Generation Preview",
+  title: "Codebase RAG",
   description:
-    "Augment language model generations with vector based retrieval using the Vercel AI SDK",
+    "Augment language model generations with vector based retrieval using the Huggingface Embeddings API, Pinecone and Groq",
 };
 
 export default function RootLayout({
