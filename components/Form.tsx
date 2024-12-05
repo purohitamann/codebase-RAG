@@ -13,7 +13,7 @@ const FetchApiKeysForm = () => {
 
         try {
             // Dynamically insert the username into the URL
-            const response = await fetch(`http://127.0.0.1:8000/get-api-keys/${username}`);
+            const response = await fetch(`http://0.0.0.0:8500/get-api-keys/${username}`);
             if (response.ok) {
 
                 const data = await response.json();
